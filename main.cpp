@@ -11,10 +11,7 @@ int main(){
 
     string palavra;
 
-    do{
-    cout << "Insira a palavra a ser pesquisada" << endl << endl;
-
-    cin >> palavra;
+    while(cout << "Insira a palavra a ser pesquisada" << endl << endl && cin >> palavra){
 
     cout << endl;
 
