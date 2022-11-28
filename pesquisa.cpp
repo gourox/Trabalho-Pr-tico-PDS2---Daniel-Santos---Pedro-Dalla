@@ -23,7 +23,7 @@ pesquisa::pesquisa(string caminho){
         string palavra;
 
         while(arquivo >> palavra){
-                indice_[palavra].insert(documento);
+                indice_[normaliza(palavra)].insert(documento);
             
         }
 
@@ -32,13 +32,37 @@ pesquisa::pesquisa(string caminho){
     }
 }
 
+string pesquisa::normaliza(std::string palavra){
+    setlocale(LC_ALL, "portuguese");
+    setlocale(LC_ALL, "pt_BR_utf8");
+    
+    for (int i = 0; i < palavra.size(); i++){
+
+        string auxcedilha = "çÇ";
+    
+        for (int k = 0; k < auxcedilha.size(); k++){
+            if (palavra[i] == auxcedilha[k]){
+            palavra[i] = 'c';
+            }
+        }
+        if (ispunct(palavra[i]) || isdigit(palavra[i])){
+            palavra.erase(palavra.begin() + i);
+            i--;}
+    
+        palavra[i] = tolower(palavra[i]);
+
+    }
+
+    return palavra;
+}
+
 void pesquisa::pesquisar(string palavra){
 
 
 
     
 
-    if(auto it = indice_.find(palavra); it != indice_.end()){
+    if(auto it = indice_.find(normaliza(palavra)); it != indice_.end()){
 
         cout << "Os seguintes arquivos relevantes foram encontrados:" << endl << endl;
         
