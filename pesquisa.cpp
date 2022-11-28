@@ -46,10 +46,12 @@ void pesquisa::pesquisar(string palavra){
             string max;
 
             max = *(x.rbegin());
+            x.erase(max);
+            max.erase(0, 11);
 
             cout << max << endl;
 
-            x.erase(max);
+            
         }
 
     }
