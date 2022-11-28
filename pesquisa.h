@@ -2,10 +2,12 @@
 #include "normaliza_palavra.h"
 #include <filesystem>
 #include <iostream>
-#include<fstream>
+#include <fstream>
 #include <map>
 #include <set>
 #include <string>
+#include <cctype>
+#include <locale>
 
 using namespace std;
 namespace fs = std::filesystem;
@@ -19,6 +21,8 @@ class pesquisa{
 
     //retorna vetor com resultados de pesquisas (ordenados por valor léxicográfico dos arquivos)
     void pesquisar(string palavra);
+
+    string normaliza(std::string palavra);
 
     //destructor
     ~pesquisa();
