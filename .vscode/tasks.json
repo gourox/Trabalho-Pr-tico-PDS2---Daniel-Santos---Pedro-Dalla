@@ -6,7 +6,12 @@
         {
             "label": "Compilar e Rodar",
             "type": "shell",
-            "command": "g++ -std=c++17 main.cpp pesquisa.cpp Normaliza_Palavra.cpp doctest.h -lstdc++ && ./a.out"
+            "command": "g++ -std=c++17 main.cpp pesquisa.cpp doctest.h -lstdc++ && ./a.out",
+            "problemMatcher": [],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
         }
     ]
 }
