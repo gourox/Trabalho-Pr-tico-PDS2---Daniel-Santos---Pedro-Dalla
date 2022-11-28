@@ -56,11 +56,13 @@ string pesquisa::normaliza(std::string palavra){
     return palavra;
 }
 
+void pesquisa::ordenar(vector<string>& v){
+
+    sort(v.begin(), v.end());
+
+}
+
 void pesquisa::pesquisar(string palavra){
-
-
-
-    
 
     if(auto it = indice_.find(normaliza(palavra)); it != indice_.end()){
 
@@ -68,15 +70,17 @@ void pesquisa::pesquisar(string palavra){
         
         set<string> x = it->second;
 
-        while(x.empty() == false){
-            string max;
+        vector<string> v;
 
-            max = *(x.rbegin());
-            x.erase(max);
-            max.erase(0, 11);
+        for(string s : x){
+            v.push_back(s);
+        }
 
-            cout << max << endl << endl;
+        ordenar(v);
 
+        for(string s : v){
+
+            cout << s << endl << endl;
         }
 
     }

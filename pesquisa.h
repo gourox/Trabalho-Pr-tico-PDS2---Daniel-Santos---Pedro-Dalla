@@ -7,6 +7,8 @@
 #include <string>
 #include <cctype>
 #include <locale>
+#include <vector>
+#include <algorithm>
 
 using namespace std;
 namespace fs = std::filesystem;
@@ -21,7 +23,11 @@ class pesquisa{
     //retorna vetor com resultados de pesquisas (ordenados por valor léxicográfico dos arquivos)
     void pesquisar(string palavra);
 
+    //normaliza palavra
     string normaliza(std::string palavra);
+
+    //ordena vetor de string lexicograficamente
+    void ordenar(vector<string>& v);
 
     //destructor
     ~pesquisa();
