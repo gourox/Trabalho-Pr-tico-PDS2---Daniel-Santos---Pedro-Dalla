@@ -26,9 +26,6 @@ class pesquisa{
     //normaliza palavra
     string normaliza(std::string palavra);
 
-    //ordena vetor de string lexicograficamente
-    void ordenar(vector<string>& v);
-
     //destructor
     ~pesquisa();
 
