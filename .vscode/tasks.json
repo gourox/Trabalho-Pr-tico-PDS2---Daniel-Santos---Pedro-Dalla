@@ -6,11 +6,22 @@
         {
             "label": "Compilar e Rodar",
             "type": "shell",
-            "command": "g++ -std=c++17 main.cpp pesquisa.cpp -lstdc++ && ./a.out",
+            "command": "g++ -std=c++17 main.cpp pesquisa.cpp -lstdc++ && ./a.out && rm a.out",
             "problemMatcher": [],
             "group": {
                 "kind": "build",
                 "isDefault": true
+            }
+        },
+
+        {
+            "label": "Compilar e Testar",
+            "type": "shell",
+            "command": "g++ -std=c++17 pesquisa_teste.cpp pesquisa.cpp  doctest.h -lstdc++ && ./a.out && rm a.out && rm doctest.h.gch",
+            "problemMatcher": [],
+            "group": {
+                "kind": "build",
+                "isDefault": false
             }
         }
     ]
