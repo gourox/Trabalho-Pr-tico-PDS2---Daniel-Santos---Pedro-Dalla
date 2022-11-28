@@ -7,17 +7,34 @@ using namespace std;
 namespace fs = std::filesystem;
 
 int main(){
-    pesquisa p("documentos");
 
-    string palavra;
+    try{
+        pesquisa p("documentos");
 
-    while(cout << "Insira a palavra a ser pesquisada" << endl << endl && cin >> palavra){
+        string palavra;
 
-    cout << endl;
+        while(cout << "Insira a palavra a ser pesquisada" << endl << endl && cin >> palavra){
 
-    p.pesquisar(palavra);
+        cout << endl;
 
-    }while(cin >> palavra);
+        p.pesquisar(palavra);
+
+        }while(cin >> palavra);
+
+    }catch(CaminhoInexistente e){
+
+        cout << "Erro: o caminho especificado não existe" << endl << endl;
+
+    }catch(PastaVazia e){
+
+        cout << "Erro:  pasta especificada não possui documentos" << endl << endl;
+    
+    }catch(PalavraInexistente e){
+
+        cout << "Erro: nenhum arquivo presente na pasta possuí a(s) palavra(s) pesquisada(s)" << endl << endl;
+    }
+
+
 
     return 0;
 }

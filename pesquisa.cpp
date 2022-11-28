@@ -7,9 +7,23 @@ namespace fs = std::filesystem;
 
 pesquisa::pesquisa(string caminho){
 
-    set<string> lista;
-
     const fs::path documentos{caminho};
+
+    if(fs::exists(caminho) == false){
+
+        CaminhoInexistente x;
+
+        throw x;
+    }
+
+    else if(fs::is_empty(caminho) == true){
+
+        PastaVazia x;
+
+        throw x;
+    }
+
+    set<string> lista;
 
     for (auto const& arquivo : fs::directory_iterator{documentos}){
         lista.insert(arquivo.path());
@@ -81,7 +95,13 @@ void pesquisa::pesquisar(string palavra){
             cout << s << endl << endl;
        }
 
-    }
+    }else{
+
+            PalavraInexistente x;
+            
+            throw x;
+            
+        }
 
 
 

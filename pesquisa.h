@@ -34,3 +34,15 @@ class pesquisa{
     map<string, set<string>> indice_;
 };
 
+struct CaminhoInexistente{
+    
+};
+
+struct PastaVazia{
+    
+};
+
+struct PalavraInexistente{
+    
+};
+
