@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include "Normaliza_Palavra.h"
 #include "pesquisa.h"
 #include <iostream>
 #include <filesystem>
@@ -10,7 +9,18 @@ namespace fs = std::filesystem;
 int main(){
     pesquisa p("documentos");
 
-    p.pesquisar("(James");
+    string palavra;
+
+    do{
+    cout << "Insira a palavra a ser pesquisada" << endl << endl;
+
+    cin >> palavra;
+
+    cout << endl;
+
+    p.pesquisar(palavra);
+
+    }while(cin >> palavra);
 
     return 0;
 }

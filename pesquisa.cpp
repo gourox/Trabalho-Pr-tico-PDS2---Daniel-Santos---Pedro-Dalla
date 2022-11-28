@@ -39,6 +39,8 @@ void pesquisa::pesquisar(string palavra){
     
 
     if(auto it = indice_.find(palavra); it != indice_.end()){
+
+        cout << "Os seguintes arquivos relevantes foram encontrados:" << endl << endl;
         
         set<string> x = it->second;
 
@@ -49,9 +51,8 @@ void pesquisa::pesquisar(string palavra){
             x.erase(max);
             max.erase(0, 11);
 
-            cout << max << endl;
+            cout << max << endl << endl;
 
-            
         }
 
     }
