@@ -2,7 +2,6 @@
 #include "pesquisa.h"
 #include <iostream>
 #include <filesystem>
-#include "normaliza_palavra.h"
 
 using namespace std;
 namespace fs = std::filesystem;

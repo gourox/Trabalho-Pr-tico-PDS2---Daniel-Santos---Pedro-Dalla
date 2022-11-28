@@ -1,5 +1,4 @@
 #pragma once
-#include "normaliza_palavra.h"
 #include <filesystem>
 #include <iostream>
 #include <fstream>
