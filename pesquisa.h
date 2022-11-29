@@ -21,10 +21,13 @@ class pesquisa{
     pesquisa(string caminho);
 
     //retorna vetor com resultados de pesquisas (ordenados por valor léxicográfico dos arquivos)
-    void pesquisar(string palavra);
+    vector<string> pesquisar(string palavra);
 
     //normaliza palavra
     string normaliza(std::string palavra);
+
+    //cria um vetor de strings ordenado lexograficamente
+    vector<string> ordenar(set<string> x);
 
     //destructor
     ~pesquisa();

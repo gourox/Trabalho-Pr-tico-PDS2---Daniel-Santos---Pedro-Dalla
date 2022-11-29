@@ -70,17 +70,13 @@ string pesquisa::normaliza(std::string palavra){
     return palavra;
 }
 
-void pesquisa::pesquisar(string palavra){
+vector<string> pesquisa::ordenar(set<string> x){
 
-    if(auto it = indice_.find(normaliza(palavra)); it != indice_.end()){
+    vector<string> v;
 
-        cout << "Os seguintes arquivos relevantes foram encontrados:" << endl << endl;
-        
-        set<string> x = it->second;
+    for(string s : x){
 
-        vector<string> v;
-
-        for(string s : x){
+            s.erase(0, 11);
 
             v.push_back(s);
 
@@ -88,12 +84,16 @@ void pesquisa::pesquisar(string palavra){
 
         sort(v.begin(), v.end());
 
-       for(string s : v){
+       return v;
+}
 
-            s.erase(0, 11);
+vector<string> pesquisa::pesquisar(string palavra){
 
-            cout << s << endl << endl;
-       }
+    if(auto it = indice_.find(normaliza(palavra)); it != indice_.end()){
+        
+        vector<string> v = ordenar(it -> second);
+
+        return v;
 
     }else{
 

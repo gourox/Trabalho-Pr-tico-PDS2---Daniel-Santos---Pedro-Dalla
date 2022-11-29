@@ -17,9 +17,16 @@ int main(){
 
         cout << endl;
 
-        p.pesquisar(palavra);
+        vector<string> v = p.pesquisar(palavra);
 
-        }while(cin >> palavra);
+            cout << "Foram encontrados os seguintes documentos relevantes:" << endl << endl;
+
+            for(string s : v){
+
+                cout << s << endl << endl;
+            }
+
+        }
 
     }catch(CaminhoInexistente e){
 
