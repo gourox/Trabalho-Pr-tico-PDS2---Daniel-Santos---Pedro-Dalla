@@ -1,11 +1,8 @@
-./maquina_busca: pesquisa.o main.o
-	c++ -o ./maquina_busca pesquisa.o main.o
-./maquina_busca.o: jpesquisa.h pesquisa.cpp
-	c++ -c pesquisa.cpp -o pesquisa.o
-./main.o: pesquisa.h main.cpp
-	c++ -c main.cpp
+all:
+	g++ -std=c++17 main.cpp pesquisa.cpp -lstdc++ && ./a.out && rm a.out
+
 clean:
-	rm *.o
-execution:
-	./maquina_busca
-	
+	$(RM) -r *.o *.out $(TARGET)
+
+testar:
+	g++ -std=c++17 pesquisa_teste.cpp pesquisa.cpp  doctest.h -lstdc++ && ./a.out && rm a.out && rm doctest.h.gch
